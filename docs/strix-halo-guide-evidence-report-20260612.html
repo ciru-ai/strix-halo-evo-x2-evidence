@@ -1,0 +1,671 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Strix Halo Community Evidence</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f8f5;
+      --panel: #ffffff;
+      --ink: #1b1f23;
+      --muted: #5e6872;
+      --line: #d9ded8;
+      --accent: #0c6b5f;
+      --accent-2: #a13d2d;
+      --accent-3: #315f8f;
+      --soft: #e7f2ef;
+      --soft-2: #f3e9e6;
+      --soft-3: #e8eef5;
+      --warn: #7b5600;
+      --warn-bg: #fff3cf;
+      --radius: 8px;
+      --shadow: 0 14px 40px rgba(25, 32, 38, 0.08);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.5;
+    }
+
+    a {
+      color: var(--accent-3);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    .page {
+      min-height: 100vh;
+    }
+
+    .hero {
+      background: #18211f;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(11, 18, 17, 0.92), rgba(11, 18, 17, 0.72) 52%, rgba(11, 18, 17, 0.28)),
+        url("strixhalo.png") center right / contain no-repeat;
+      opacity: 0.98;
+    }
+
+    .hero-inner {
+      position: relative;
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 42px 0 36px;
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: #a7d7ce;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 820px;
+      font-size: clamp(32px, 5vw, 58px);
+      line-height: 1.03;
+      letter-spacing: 0;
+    }
+
+    .subtitle {
+      max-width: 760px;
+      margin: 18px 0 0;
+      color: #d5e2df;
+      font-size: 18px;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      padding: 6px 10px;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      color: #eef7f5;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    main {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 28px 0 54px;
+    }
+
+    section {
+      margin-top: 30px;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: 24px;
+      line-height: 1.18;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 0 0 8px;
+      font-size: 17px;
+      letter-spacing: 0;
+    }
+
+    p {
+      margin: 0 0 12px;
+    }
+
+    .lede-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+
+    .callout {
+      background: var(--soft);
+      border: 1px solid #c1ddd7;
+      border-radius: var(--radius);
+      padding: 16px;
+    }
+
+    .callout.warn {
+      background: var(--warn-bg);
+      border-color: #ead28e;
+      color: #3d2e00;
+    }
+
+    .headline-list {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: headline;
+    }
+
+    .headline-list li {
+      counter-increment: headline;
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 12px;
+      align-items: start;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+    }
+
+    .headline-list li::before {
+      content: counter(headline);
+      display: grid;
+      place-items: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .metric {
+      min-height: 150px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 15px;
+      box-shadow: var(--shadow);
+    }
+
+    .metric .label {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0;
+    }
+
+    .metric .value {
+      margin-top: 10px;
+      font-size: 30px;
+      line-height: 1;
+      font-weight: 850;
+      letter-spacing: 0;
+    }
+
+    .metric .note {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .metric.npu {
+      background: var(--soft);
+      border-color: #bcd8d2;
+    }
+
+    .metric.speed {
+      background: var(--soft-3);
+      border-color: #c6d4e2;
+    }
+
+    .metric.quality {
+      background: var(--soft-2);
+      border-color: #e0c9c2;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 900px;
+      font-size: 14px;
+    }
+
+    th,
+    td {
+      padding: 11px 12px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th {
+      background: #eef1ed;
+      color: #293039;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    code {
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+      font-size: 0.92em;
+      background: #eef1ed;
+      border: 1px solid #dce2db;
+      border-radius: 5px;
+      padding: 1px 5px;
+      overflow-wrap: anywhere;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .list {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .list li {
+      margin: 8px 0;
+    }
+
+    .source-list {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .source-list li {
+      padding: 10px 12px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+
+    .tag {
+      display: inline-block;
+      margin-right: 6px;
+      margin-bottom: 5px;
+      padding: 3px 7px;
+      border-radius: 999px;
+      background: #eef1ed;
+      color: #3b444b;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    footer {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 0 0 36px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 920px) {
+      .hero::before {
+        background:
+          linear-gradient(90deg, rgba(11, 18, 17, 0.94), rgba(11, 18, 17, 0.78)),
+          url("strixhalo.png") center right / cover no-repeat;
+      }
+
+      .lede-grid,
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+
+      .cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 560px) {
+      .hero-inner {
+        padding: 30px 0;
+      }
+
+      h1 {
+        font-size: 34px;
+      }
+
+      .subtitle {
+        font-size: 16px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .headline-list li {
+        grid-template-columns: 30px 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <div class="hero-inner">
+        <p class="eyebrow">Public evidence artifact</p>
+        <h1>Strix Halo Community Evidence Report</h1>
+        <p class="subtitle">GMKtec EVO-X2 / NixOS / IOMMU-on / NPU-aware benchmark package: public headlines, key metrics, and data inventory.</p>
+        <div class="meta" aria-label="report metadata">
+          <span class="pill">Prepared 2026-06-12</span>
+          <span class="pill">Updated 2026-06-13</span>
+          <span class="pill">Public summary artifact</span>
+          <span class="pill">Model links included</span>
+          <span class="pill">Measured claims only</span>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="lede-grid" aria-labelledby="lead-story">
+        <div class="panel">
+          <h2 id="lead-story">Evidence Story</h2>
+          <p>NPU-aware daily-driver evidence leads this package, followed by optimized Strix Halo model results from <a href="https://huggingface.co/jcbtc/qwopus3.6-27b-v2-chadrock-rocmfp4-mtp">Chadrock/Qwopus</a>, <a href="https://huggingface.co/jcbtc/qwen3.6-35b-a3b-crown-halo-mtp-dynamic">CrownV7</a>, and <a href="https://huggingface.co/collections/unsloth/gemma-4-qat">Gemma QAT/MTP</a>.</p>
+          <ul class="headline-list">
+            <li><div><strong>NPU sidecar lane:</strong> run cron jobs, Hermes tasks, and benchmark supervision on an always-on NPU service with very low measured overhead on the main CPU/iGPU path.</div></li>
+            <li><div><strong>IOMMU-on rationale:</strong> keep the NPU available as a separate always-on execution lane without slowing normal CPU/iGPU work when side tasks run.</div></li>
+            <li><div><strong><a href="https://huggingface.co/jcbtc/qwopus3.6-27b-v2-chadrock-rocmfp4-mtp">27B Chadrock/Qwopus</a>:</strong> same HumanEval workload, higher score, and about 2.85x lower recorded request-generation time than the stored original <a href="https://huggingface.co/Jackrong/Qwopus3.6-27B-v2-GGUF">Qwopus3.6 27B v2 Q5_K_M</a> run.</div></li>
+            <li><div><strong><a href="https://huggingface.co/jcbtc/CHADROCK3.6-35B-UNCENSORED-MTP-STRIX-LEAN">35B Chadrock</a>/<a href="https://huggingface.co/jcbtc/chadrock-35b-ace-saber-rocmfp4-mtp">Ace</a>:</strong> strong HumanEval quality paired with over-90 and over-100 tok/s quality-run speed evidence.</div></li>
+            <li><div><strong><a href="https://huggingface.co/jcbtc/qwen3.6-35b-a3b-crown-halo-mtp-dynamic">CrownV7</a>:</strong> optimized Qwen3.6 35B Strix Halo route with strong 128k prefill/decode evidence and useful tool/agent benchmark anchors.</div></li>
+            <li><div><strong><a href="https://huggingface.co/unsloth/gemma-4-26B-A4B-it-qat-GGUF">Gemma 4 26B</a>:</strong> new QAT/MTP API speed row implies about 122.8 decode tok/s after TTFP.</div></li>
+            <li><div><strong><a href="https://huggingface.co/unsloth/gemma-4-12B-it-qat-GGUF">Gemma 4 12B QAT/MTP</a>:</strong> the n-max 5 speed configuration also scored 0.9329 HumanEval+ on a full 164-task EvalPlus run.</div></li>
+          </ul>
+        </div>
+
+        <aside class="callout">
+          <h2>Artifact Contents</h2>
+          <p>This public artifact contains the evidence story, selected metrics, system context, and Hugging Face links for named model routes.</p>
+          <p>The companion README is the canonical text version of this report.</p>
+        </aside>
+      </section>
+
+      <section aria-labelledby="headline-metrics">
+        <h2 id="headline-metrics">Headline Metrics</h2>
+        <div class="cards">
+          <article class="metric npu">
+            <div class="label">NPU contention</div>
+            <div class="value">+3.29%</div>
+            <div class="note">Main 64k iGPU total latency impact with concurrent NPU load.</div>
+          </article>
+          <article class="metric npu">
+            <div class="label">iGPU contention comparator</div>
+            <div class="value">+68.96%</div>
+            <div class="note">Main 64k iGPU total latency impact with a concurrent iGPU aux model.</div>
+          </article>
+          <article class="metric speed">
+            <div class="label"><a href="https://huggingface.co/jcbtc/qwopus3.6-27b-v2-chadrock-rocmfp4-mtp">Qwopus 27B Chadrock</a></div>
+            <div class="value">37.14</div>
+            <div class="note">Peak active HumanEval completion speed, tok/s, from run metrics.</div>
+          </article>
+          <article class="metric quality">
+            <div class="label"><a href="https://huggingface.co/jcbtc/qwopus3.6-27b-v2-chadrock-rocmfp4-mtp">Qwopus 27B Chadrock</a></div>
+            <div class="value">0.9451</div>
+            <div class="note">HumanEval plus pass rate, 155/164.</div>
+          </article>
+          <article class="metric speed">
+            <div class="label"><a href="https://huggingface.co/jcbtc/CHADROCK3.6-35B-UNCENSORED-MTP-STRIX-LEAN">Chadrock 35B</a></div>
+            <div class="value">108.2</div>
+            <div class="note">Peak predicted tok/s in quality-run metrics while scoring about 0.91 HumanEval plus.</div>
+          </article>
+          <article class="metric speed">
+            <div class="label"><a href="https://huggingface.co/jcbtc/chadrock-35b-ace-saber-rocmfp4-mtp">Ace Saber 35B</a></div>
+            <div class="value">104.35</div>
+            <div class="note">Peak predicted tok/s with 0.9024 HumanEval plus.</div>
+          </article>
+          <article class="metric speed">
+            <div class="label"><a href="https://huggingface.co/jcbtc/qwen3.6-35b-a3b-crown-halo-mtp-dynamic">CrownV7 35B 128k</a></div>
+            <div class="value">515.33</div>
+            <div class="note">128k prompt tok/s with f16 KV, Vulkan row split, b8192/u512.</div>
+          </article>
+          <article class="metric quality">
+            <div class="label"><a href="https://huggingface.co/jcbtc/qwen3.6-35b-a3b-crown-halo-mtp-dynamic">CrownV7 HumanEval+</a></div>
+            <div class="value">0.8902</div>
+            <div class="note"><a href="https://huggingface.co/jcbtc/qwen3.6-35b-a3b-crown-halo-mtp-dynamic">Qwen3.6 35B Crown Halo MTP Dynamic</a> HumanEval+ pass rate.</div>
+          </article>
+          <article class="metric speed">
+            <div class="label"><a href="https://huggingface.co/unsloth/gemma-4-26B-A4B-it-qat-GGUF">Gemma 4 26B QAT/MTP</a></div>
+            <div class="value">122.8</div>
+            <div class="note">Derived decode tok/s after TTFP from 512-token API speed row.</div>
+          </article>
+          <article class="metric quality">
+            <div class="label"><a href="https://huggingface.co/unsloth/gemma-4-12B-it-qat-GGUF">Gemma 4 12B QAT/MTP</a></div>
+            <div class="value">0.9329</div>
+            <div class="note">HumanEval+ pass rate, 153/164, on the n-max 5 speed configuration.</div>
+          </article>
+          <article class="metric speed">
+            <div class="label"><a href="https://huggingface.co/unsloth/gemma-4-12B-it-qat-GGUF">Gemma 4 12B QAT/MTP</a></div>
+            <div class="value">104.07</div>
+            <div class="note">Best 512-token sweep decode tok/s; HumanEval response metadata totals 75.9 completion tok/s.</div>
+          </article>
+          <article class="metric npu">
+            <div class="label">FastFlowLM-NPU <a href="https://huggingface.co/LiquidAI/LFM2.5-1.2B-Instruct-GGUF">LFM2.5 1.2B</a></div>
+            <div class="value">38.18</div>
+            <div class="note">32k decode tok/s on NPU; prompt processing about 1646 tok/s.</div>
+          </article>
+        </div>
+      </section>
+
+      <section aria-labelledby="key-results">
+        <h2 id="key-results">Results To Show</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Priority</th>
+                <th>Result</th>
+                <th>Metrics</th>
+                <th>Why It Matters</th>
+                <th>Evidence Family</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>NPU contention against 64k main iGPU workload</td>
+                <td>Main total latency +3.29% with NPU load; +68.96% with concurrent iGPU aux load</td>
+                <td>Best practical proof that the NPU can carry auxiliary model work while preserving main iGPU latency.</td>
+                <td>NPU contention study</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>FastFlowLM-NPU context matrix and footprint</td>
+                <td><a href="https://huggingface.co/LiquidAI/LFM2.5-1.2B-Instruct-GGUF">LFM2.5 1.2B</a> at 32k: about 1646 prompt tok/s, 38.18 decode tok/s, about 2.09 GiB RSS</td>
+                <td>Shows the useful NPU lane and explains why RSS/HWM is more meaningful than sysfs VRAM/GTT counters.</td>
+                <td>FastFlowLM-NPU context matrix</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td><a href="https://huggingface.co/jcbtc/qwopus3.6-27b-v2-chadrock-rocmfp4-mtp">Qwopus3.6 27B Chadrock</a> HumanEval</td>
+                <td>0.9451 plus; 45,033 completion tokens; 1346.7948 s request latency; 33.437 tok/s completion-only; 37.138 tok/s peak active</td>
+                <td>Same 164-task workload, higher score, and about 2.85x lower recorded request-generation time than stored original <a href="https://huggingface.co/Jackrong/Qwopus3.6-27B-v2-GGUF">Qwopus3.6 27B v2 Q5_K_M</a>.</td>
+                <td>EvalPlus HumanEval metrics</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td><a href="https://huggingface.co/plunderstruck/Qwen3.6-27B-MTP-ROCmFP4-GGUF">Chadrock Qwen3.6 27B MTP ROCmFP4</a></td>
+                <td>0.9451 HumanEval plus on 164 tasks</td>
+                <td>Second 27B quality anchor; helps show the 27B tuned routes are not a single lucky row.</td>
+                <td>EvalPlus quality aggregate</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td><a href="https://huggingface.co/jcbtc/CHADROCK3.6-35B-UNCENSORED-MTP-STRIX-LEAN">CHADROCK3.6 35B uncensored MTP Strix lean</a></td>
+                <td>About 0.91 HumanEval plus; 95.6 and 108.2 peak predicted tok/s rows</td>
+                <td>High-speed/high-quality 35B evidence; important because it beats stock 27B quality while staying fast.</td>
+                <td>EvalPlus quality aggregate</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td><a href="https://huggingface.co/jcbtc/chadrock-35b-ace-saber-rocmfp4-mtp">Ace Saber 35B ROCmFP4 Vulkan D2 quality32k</a></td>
+                <td>0.9024 HumanEval plus; 104.35 peak predicted tok/s; 101.33 last-active predicted tok/s</td>
+                <td>Clean over-100 tok/s 35B quality-run anchor.</td>
+                <td>EvalPlus quality aggregate</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td><a href="https://huggingface.co/jcbtc/qwen3.6-35b-a3b-crown-halo-mtp-dynamic">CrownV7 Qwen3.6 35B Strix Halo dynamic route</a></td>
+                <td>128k prompt processing up to 515.33 tok/s; standalone TG about 60.7 tok/s; PG rows 805.63 at 32k, 627.57 at 65k, 431.26 at 128k</td>
+                <td>Evidence for the optimized <a href="https://huggingface.co/jcbtc/qwen3.6-35b-a3b-crown-halo-mtp-dynamic">CrownV7</a> route: long-context Strix Halo tuning, not stock-model behavior.</td>
+                <td>llama.cpp long-context throughput</td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td><a href="https://huggingface.co/jcbtc/qwen3.6-35b-a3b-crown-halo-mtp-dynamic">CrownV7</a> quality and agent/tool anchors</td>
+                <td>HumanEval+ 0.8902; BigCodeBench hard pass@1 0.2905; BFCL v4 non-live accuracy 0.83; HermesAgent-20 average 0.70 in the later run</td>
+                <td>Shows <a href="https://huggingface.co/jcbtc/qwen3.6-35b-a3b-crown-halo-mtp-dynamic">CrownV7</a> belongs in the tuned-model lane, especially for long-context and tool/agent-oriented local workflows.</td>
+                <td>EvalPlus, BFCL, and HermesAgent-20</td>
+              </tr>
+              <tr>
+                <td>9</td>
+                <td><a href="https://huggingface.co/unsloth/gemma-4-26B-A4B-it-qat-GGUF">Gemma 4 26B A4B QAT/MTP</a> speed</td>
+                <td>512 tokens; 4319.5 ms total; 150.2 ms TTFP; about 122.8 decode tok/s after TTFP; no-cache context sweep still shows 120.14 tok/s at 8k and 96.36 tok/s at 16k</td>
+                <td>New 26B speed headline, separated from older <a href="https://huggingface.co/collections/unsloth/gemma-4-qat">Gemma 4</a> baseline rows; long-context rows are supporting evidence with TTFP caveats.</td>
+                <td>llama-server API speed run</td>
+              </tr>
+              <tr>
+                <td>10</td>
+                <td><a href="https://huggingface.co/unsloth/gemma-4-12B-it-qat-GGUF">Gemma 4 12B QAT/MTP</a> n-max 5 quality check</td>
+                <td>HumanEval base 158/164 = 0.9634; HumanEval+ 153/164 = 0.9329</td>
+                <td>Confirms the fast n-max 5 configuration is not just a speed artifact; it remains strong on a full EvalPlus HumanEval run.</td>
+                <td>EvalPlus HumanEval quality run</td>
+              </tr>
+              <tr>
+                <td>11</td>
+                <td><a href="https://huggingface.co/unsloth/gemma-4-12B-it-qat-GGUF">Gemma 4 12B QAT/MTP</a> speed telemetry</td>
+                <td>Best sweep row: 104.07 decode tok/s; HumanEval response metadata: 67,719 completion tokens over 892.4 s = 75.9 completion tok/s; post-run aggregate server counters: 476.5 prompt tok/s, 82.3 predicted tok/s</td>
+                <td>Useful throughput evidence from the same speed route.</td>
+                <td>EvalPlus response metadata and server counters</td>
+              </tr>
+              <tr>
+                <td>12</td>
+                <td><a href="https://huggingface.co/unsloth/gemma-4-26B-A4B-it-qat-GGUF">Gemma 4 26B</a> quality anchor</td>
+                <td><a href="https://huggingface.co/unsloth/gemma-4-26B-A4B-it-qat-GGUF">Gemma 4 26B QAT/MTP</a>: HumanEval+ 0.9207; EvalPlus aggregate 0.8303 over HumanEval+ and MBPP+</td>
+                <td>Pairs the 26B speed row with quality evidence; keep this behind <a href="https://huggingface.co/jcbtc/qwopus3.6-27b-v2-chadrock-rocmfp4-mtp">Chadrock</a>/<a href="https://huggingface.co/jcbtc/qwen3.6-35b-a3b-crown-halo-mtp-dynamic">CrownV7</a> in the narrative.</td>
+                <td>EvalPlus quality aggregate</td>
+              </tr>
+              <tr>
+                <td>13</td>
+                <td>Vulkan-first backend recommendation</td>
+                <td>35B Vulkan rows around 911-915 prompt tok/s and 75-76 decode tok/s in comparable runs</td>
+                <td>Keeps guidance practical: Vulkan/RADV first; ROCm only where measured useful.</td>
+                <td>ROCm/Vulkan comparison runs</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section aria-labelledby="system">
+        <h2 id="system">System Snapshot To Include</h2>
+        <div class="grid-2">
+          <div class="panel">
+            <h3>Hardware / Firmware</h3>
+            <ul class="list">
+              <li>GMKtec NucBox_EVO-X2, SKU EVO-X2-001, hardware version 1.0</li>
+              <li>AMD Ryzen AI MAX+ 395 with Radeon 8060S</li>
+              <li>16 cores / 32 threads</li>
+              <li>123 GiB visible system memory, 128 GB class</li>
+              <li>BIOS VRAM setting: 2 GB; the workload relies on UMA access to the full 128 GB class memory pool rather than reserving a large fixed VRAM carveout</li>
+              <li>Firmware EVO-X2 1.12, firmware date 2025-12-09</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>Software / Acceleration</h3>
+            <ul class="list">
+              <li>NixOS 26.05 pre-release build <code>26.05pre987561.1c3fe55ad329</code></li>
+              <li>Linux 7.0.1</li>
+              <li>RADV STRIX_HALO, Mesa 26.0.5, Vulkan 1.4.341 instance</li>
+              <li>AMD Strix/Krackan/Strix Halo NPU exposed through <code>/dev/accel/accel0</code></li>
+              <li>IOMMU enabled; kernel cmdline includes <code>iommu.passthrough=0</code></li>
+              <li>IOMMU-on rationale: keep an always-on NPU sidecar available for cron, Hermes, and benchmark supervision work without materially slowing the CPU/iGPU path</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section aria-labelledby="data">
+        <h2 id="data">Public Artifact Files</h2>
+        <div class="panel">
+          <ul class="list">
+            <li><code>README.md</code>: public story and headline metrics</li>
+            <li><code>manifest.md</code>: system and benchmark-family appendix</li>
+            <li><code>MODEL_LINKS.md</code>: Hugging Face links for named model routes</li>
+            <li><code>docs/strix-halo-guide-evidence-report-20260612.html</code>: visual report</li>
+          </ul>
+        </div>
+      </section>
+
+      <section aria-labelledby="families">
+        <h2 id="families">Benchmark Families</h2>
+        <div class="panel">
+          <span class="tag">llama-bench</span>
+          <span class="tag">llama-server API</span>
+          <span class="tag">FastFlowLM-NPU</span>
+          <span class="tag">EvalPlus</span>
+          <span class="tag">BigCodeBench</span>
+          <span class="tag">BFCL</span>
+          <span class="tag">HermesAgent-20</span>
+          <span class="tag">LiveCodeBench</span>
+          <span class="tag">mini-swe-agent</span>
+          <p style="margin-top: 12px;">These benchmark families are summarized in the public story and system manifest.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      Public evidence artifact for GMKtec EVO-X2 / NixOS / IOMMU-on / NPU-aware Strix Halo benchmarking.
+    </footer>
+  </div>
+</body>
+</html>

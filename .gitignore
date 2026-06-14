@@ -1,0 +1,4 @@
+release-assets/*.sqlite3
+release-assets/*.tar
+release-assets/*.tar.zst
+release-assets/*.zip
