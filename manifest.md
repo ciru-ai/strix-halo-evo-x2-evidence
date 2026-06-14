@@ -21,6 +21,11 @@ Public community evidence artifact for GMKtec EVO-X2 / NixOS / IOMMU-on / NPU-aw
 - `README.md`: public evidence story and headline metrics
 - `MODEL_LINKS.md`: Hugging Face links for named model routes
 - `docs/strix-halo-guide-evidence-report-20260612.html`: visual evidence report
+- `data/public_evidence.sqlite3`: compact public highlights database
+- `data/public_evidence_metrics.csv`: CSV view of the compact public highlights database
+- `data/db/llama-results.sanitized.sqlite3`: full llama.cpp throughput database, 1,687 benchmark rows
+- `data/db/quality-results.sanitized.sqlite3`: full quality-results database, 1,029 quality rows
+- `data/csv/`: CSV exports for the main public views
 
 ## Benchmark Families
 
@@ -34,3 +39,19 @@ Public community evidence artifact for GMKtec EVO-X2 / NixOS / IOMMU-on / NPU-aw
 - [Gemma 4 QAT/MTP](https://huggingface.co/collections/unsloth/gemma-4-qat) tuning and quality runs
 - [CrownV7 Qwen3.6 35B](https://huggingface.co/jcbtc/qwen3.6-35b-a3b-crown-halo-mtp-dynamic) dynamic-route throughput and quality evidence
 - EvalPlus, BigCodeBench, BFCL, HermesAgent-20, LiveCodeBench, and mini-swe-agent quality measurements
+
+## Data Tables
+
+- `llama-results.sanitized.sqlite3`
+  - `benchmark_rows`: 1,687 rows
+  - `llama_bench_comparable`: 1,315 rows
+  - `llama_bench_strict`: 1,241 rows
+- `quality-results.sanitized.sqlite3`
+  - `quality_rows`: 1,029 rows
+  - `quality_result_rows`: 1,029 rows
+  - `quality_evalplus_aggregate`: 27 rows
+- `public_evidence.sqlite3`
+  - `results`: 10 curated public result summaries
+  - `metrics`: 41 headline metrics
+
+Paths are retained where they provide benchmark provenance. The public screen is focused on credentials and private payloads.

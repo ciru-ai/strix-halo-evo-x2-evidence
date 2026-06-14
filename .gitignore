@@ -2,3 +2,7 @@ release-assets/*.sqlite3
 release-assets/*.tar
 release-assets/*.tar.zst
 release-assets/*.zip
+
+# SQLite transient sidecars
+*.sqlite3-shm
+*.sqlite3-wal

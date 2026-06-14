@@ -91,3 +91,18 @@ The June 13 no-cache context sweep keeps the 26B QAT/MTP route over 100 tok/s at
 - [manifest.md](manifest.md): system and benchmark-family appendix
 - [MODEL_LINKS.md](MODEL_LINKS.md): Hugging Face links for named model routes
 - [HTML evidence report](docs/strix-halo-guide-evidence-report-20260612.html): visual summary of the same public evidence
+
+## Data
+
+The repository includes both a compact public highlights database and the full benchmark exports.
+
+- `data/public_evidence.sqlite3`: curated public index of the headline evidence
+- `data/public_evidence_metrics.csv`: CSV view of the curated public index
+- `data/db/llama-results.sanitized.sqlite3`: full llama.cpp throughput database, 1,687 benchmark rows
+- `data/db/quality-results.sanitized.sqlite3`: full quality-results database, 1,029 quality rows
+- `data/csv/llama_bench_comparable.csv`: 1,315 comparable llama.cpp rows
+- `data/csv/llama_bench_strict.csv`: 1,241 strict llama.cpp rows
+- `data/csv/quality_result_rows.csv`: 1,029 quality rows
+- `data/csv/quality_evalplus_aggregate.csv`: 27 EvalPlus aggregate rows
+
+Paths are retained where they are useful benchmark provenance. The public screening is focused on credentials, tokens, auth headers, cookies, passwords, and raw private payloads.
